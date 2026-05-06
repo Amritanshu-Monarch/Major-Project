@@ -97,6 +97,33 @@
                     <i data-lucide="mic" class="text-blue-600"></i> <span data-i18n="btnVoice">Voice Assistant</span>
                 </button>
             </div>
+
+            <!-- Weather Widget (populated by API) -->
+            <div id="weather-widget" class="mt-8 hidden">
+                <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-6 py-3 text-white">
+                    <i id="weather-icon" data-lucide="cloud-sun" class="h-5 w-5 text-yellow-300"></i>
+                    <span id="weather-summary" class="text-sm font-medium"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Section -->
+    <section id="chat-section" class="py-12 bg-agriLight border-b border-green-100">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2 mb-6">
+                <i data-lucide="bot" class="text-agriGreen"></i>
+                <span data-i18n="chatTitle">Ask the AI Assistant</span>
+            </h2>
+            <div id="chat-messages" class="space-y-3 mb-4 max-h-64 overflow-y-auto pr-1"></div>
+            <div class="flex gap-2">
+                <input id="chat-input" type="text" 
+                    class="flex-1 border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-agriGreen text-sm"
+                    placeholder="Ask about fertilizer, yield, weather…" data-i18n-placeholder="chatPlaceholder">
+                <button id="chat-send-btn" class="bg-agriGreen hover:bg-agriDark text-white px-5 py-3 rounded-xl font-semibold transition">
+                    <i data-lucide="send" class="h-4 w-4"></i>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -161,6 +188,7 @@
         </div>
     </footer>
 
+    <!-- Custom Alert -->
     <div id="custom-alert" class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden animate-scale-in text-center p-6">
             <div id="alert-icon-container" class="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-4 bg-green-100 text-agriGreen">
@@ -168,12 +196,11 @@
             </div>
             <h3 id="alert-title" class="text-2xl font-bold text-gray-900 mb-2">Notice</h3>
             <p id="alert-message" class="text-gray-600 mb-6 leading-relaxed">Action completed.</p>
-            <button id="close-alert-btn" class="w-full bg-agriGreen hover:bg-agriDark text-white font-bold py-3 rounded-lg transition shadow-md">
-                OK
-            </button>
+            <button id="close-alert-btn" class="w-full bg-agriGreen hover:bg-agriDark text-white font-bold py-3 rounded-lg transition shadow-md">OK</button>
         </div>
     </div>
 
+    <!-- Login Modal -->
     <div id="login-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-fade-in-up">
             <div class="bg-agriLight p-6 text-center border-b border-green-100 relative">
@@ -187,7 +214,6 @@
                 <p id="modal-subtitle" class="text-gray-600 text-sm mt-1" data-i18n="modalSub">Login with your mobile number</p>
             </div>
             <div class="p-6">
-                
                 <form id="login-form" class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1" data-i18n="modalLabel">Mobile Number</label>
@@ -216,11 +242,11 @@
                         <span data-i18n="editNumber">Edit mobile number</span>
                     </button>
                 </form>
-
             </div>
         </div>
     </div>
 
+    <!-- Voice Toast -->
     <div id="voice-toast" class="hidden fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-6 py-4 rounded-full shadow-2xl flex items-center gap-4 z-[100] animate-bounce-slight">
         <div class="relative flex items-center justify-center h-4 w-4">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
